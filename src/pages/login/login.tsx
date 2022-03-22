@@ -12,7 +12,7 @@ export default function LoginPage(){
                 <p>LOGIN</p>
                 <input placeholder='Digite seu usuário!' />
                 <p>SENHA</p>
-                <input placeholder='Digite sua senha' />
+                <input type="password" placeholder='Digite sua senha' />
                 <button>LOGIN</button>
             </div>
         </div>
