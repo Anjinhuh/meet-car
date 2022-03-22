@@ -1,3 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+
+    font-size: 62.5%;
+    font-family: 'Poppins', sans-serif;
+
+}
+.app{
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: #373333;
+    grid-template-columns: 40% 60%;
+}
 
 
+.imageLogin{
+    grid-column-start: 1;
+    max-width: 100%;
+    max-height: 100vh;
+}
+.imageLogin > img{
+    display: flex;
+    height: 100%;
+}
+.loginForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    flex-direction: column;
+
+    grid-column-start: 2;
+
+    color: #fff;
+}
+.loginForm > p{
+    font-size: 2rem;
+}
+.loginForm > input {
+    width: 20vw;
+    height: 3vh;
+    border-radius: 20px;
+    outline: 0 none;
+    border: 0 none;
+
+   
+}
+.loginForm > input::placeholder{
+    display: flex;
+    height: 3vh;
+
+    font-size: 1.5rem;
+}
+.loginForm > button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    width: 10vw;
+    height: 3vh;
+    font-size: 1.5rem;
+    border-radius: 30px;
+    outline: 0 none;
+    border: 0 none;
+    background-color: #FF8829;
+    color: #fff;
+}
