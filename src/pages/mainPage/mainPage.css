@@ -2,6 +2,52 @@
     
     width: 100vw;
     height: 100vh;
-
+    max-width: 100vw;
     background-color: #373333;
+    
+}
+::-webkit-scrollbar {
+    width: 0px;
+  }
+
+.mapApp{
+    width: 100vw;
+    height: 100vh;
+}
+.appMain > header{
+    width: 100vw;
+    height: 6vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.appMain > header > .header-text > p{
+    color: #fff;
+    font-size: 3rem;
+}
+.appMain > header > .utils {
+    display: flex;
+    align-items: center;
+    
+}
+.appMain > header > .utils > p{
+    color: #fff;
+    font-size: 2rem;
+    padding: 2rem;
+}
+.appMain > header > .utils > button{
+    background-color: #E87B1E;
+    color: #fff;
+
+    width: 7vw;
+    height: 3vh;
+    border-radius: 20px;
+    
+    font-size: 1.5rem;
+
+    outline: none;
+    border: 0 none;
+}
+.appMain > header > .utils > button:hover{
+    background-color: #f19d53;
 }
