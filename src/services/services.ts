@@ -1,7 +1,7 @@
 import API from "../api/api";
 
 export const executaLogin = () => {
-    API.get('/').then(x =>{
+    API.get('/').then(async x =>{
         return String(x.data)
     })
 }

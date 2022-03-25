@@ -25,12 +25,14 @@ const MapPage = () =>{
         
       >
         { /* Child components, such as markers, info windows, etc. */ }
-        <Marker position={postion} options={{
+        <Marker  position={postion} onClick={(e) => {console.log(e.latLng?.toJSON())}}  options={{
           label: {
             text: 'Posição teste',
             className: 'map-marker'
           }
+          
         }} />
+      
       </GoogleMap>
   ) : <></>}
     </div>

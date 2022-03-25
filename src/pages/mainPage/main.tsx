@@ -5,23 +5,21 @@ import {console} from '../../controllers/controllers'
 export default function MainPage(){
     const[texto, setTexto] = useState('')
     
-    useEffect(() =>{
-        async function executa(){
-            setTexto(await console())  
-        }
-        executa()
-    }, [])
+    async function recebeValor(){
+        return setTexto(await console()) 
+    }
+    
     
     return(
     <div className="appMain">
+        {texto}
         <header>
-            
             <div className="header-text">
                 <p>MadeForMeet</p>
             </div>
             <div className="utils">
                 <p>Juliano</p>
-                <button>Create a meet</button>
+                <button onClick={() => {recebeValor()}}>Create a meet</button>
             </div>
 
         </header>
