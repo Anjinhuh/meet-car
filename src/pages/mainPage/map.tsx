@@ -1,18 +1,32 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import './mainPage.css'
 import style from './styleMap';
+import { getCoords } from '../../controllers/controllers';
+import { defineValidador } from './main';
+
 const MapPage = () =>{
+      const[COORD, SETCOORD] = useState([])
+      useEffect(() =>{
+            async function ChangeStateCoord(){
+              SETCOORD(await getCoords())  
+          }
+          ChangeStateCoord()
+        
+        
+    }, [])
+
     const GOOGLE_KEY = String(process.env.REACT_APP_GOOGLE_KEY) // NOT THE BEST WAY
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
         googleMapsApiKey:  GOOGLE_KEY,
-      })
+    })
     const postion = {
       lat: -22.853523, 
       lng: -43.254074
     }
+
     return(
      <div className="mapApp">
         {  isLoaded ? (
@@ -21,17 +35,23 @@ const MapPage = () =>{
         mapContainerStyle={{width: '100%', height: '80%'}}
         center={postion}
         zoom={15}
-        onClick={(e) =>{console.log(e.latLng?.toJSON())}}
-        
+        onDblClick={(e) =>{defineValidador()}}
       >
         { /* Child components, such as markers, info windows, etc. */ }
-        <Marker  position={postion} onClick={(e) => {console.log(e.latLng?.toJSON())}}  options={{
-          label: {
-            text: 'Posição teste',
-            className: 'map-marker'
-          }
-          
-        }} />
+        
+        {COORD.map( (MARKER) =>
+                            
+                            <Marker  position={{
+                              lat: Number(MARKER['lat']), 
+                              lng: Number(MARKER['lng'])
+                            }} options={{
+                              label: {
+                                text: MARKER['name'],
+                                className: 'map-marker'
+                              }
+                              
+                            }} />
+                        )}
       
       </GoogleMap>
   ) : <></>}

@@ -16,7 +16,9 @@ app.use(bodyParser.json())
 
  
 app.get('/', async (req, res) =>{
-    await db.getUser(req, res)
+    await db.getCoords(req, res)
+    console.log('OKKk')
+
 })
 app.listen(port, () =>{
         console.info(`Aplicação rodando na porta ${port}!`)

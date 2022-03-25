@@ -1,0 +1,39 @@
+.modal-create-meet{
+    min-width: 100%;
+    min-height: 100%;
+    background-color: rgba(0,0,0,.3);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content-modal{
+    min-width: 20%;
+    min-height: 20vh;
+    background-color:#fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 2.5rem;
+    padding: 2rem;
+    text-align: left;
+    border-radius: 10px;
+}
+.content-modal > input{
+    font-size: 2;
+    width: 91%;
+    border: 2px solid #E87B1E;
+    border-radius: 20px;
+    outline: 0 none;
+    padding-left: 2rem;
+}
+.content-modal > button{
+    background-color: #E87B1E;
+    color: #fff;
+    border: 0 none;
+    border-radius: 30px;
+    margin-top: 2rem;
+    width: 40%;
+    height: 5vh;
+}

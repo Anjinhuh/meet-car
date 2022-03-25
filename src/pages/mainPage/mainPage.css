@@ -51,3 +51,8 @@
 .appMain > header > .utils > button:hover{
     background-color: #f19d53;
 }
+
+.map-marker{
+    font-size: 1rem;
+    color: #fff;
+}

@@ -1,31 +1,42 @@
 import React, { useEffect, useState } from 'react'
 import './mainPage.css'
 import MapPage from './map'
-import {console} from '../../controllers/controllers'
+import CreateMeet from './modalCreateMeet/createMeet'
+
+let validador = false
+export const defineValidador = () =>{
+    validador = true
+    console.log('ok')
+}
+
 export default function MainPage(){
-    const[texto, setTexto] = useState('')
-    
-    async function recebeValor(){
-        return setTexto(await console()) 
+    const [CREATE_MEET_DISP, SET_CREATE_MEET] = useState(false)
+    if(validador){
+        SET_CREATE_MEET(true)
+       
     }
-    
-    
     return(
+
+    
+    
+    
     <div className="appMain">
-        {texto}
+        
         <header>
             <div className="header-text">
                 <p>MadeForMeet</p>
             </div>
             <div className="utils">
                 <p>Juliano</p>
-                <button onClick={() => {recebeValor()}}>Create a meet</button>
+                <button>Create a meet</button>
             </div>
 
         </header>
-        <div>
+        {CREATE_MEET_DISP ? <CreateMeet/> : <div className="map">
             <MapPage></MapPage>
-        </div>
+        </div> }
+        
     </div>
+
     )
 }

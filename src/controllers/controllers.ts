@@ -1,5 +1,5 @@
 const services = require('../services/services')
 
-export const console = async() => {
+export const getCoords = async() => {
     return services.executaLogin()
 }
