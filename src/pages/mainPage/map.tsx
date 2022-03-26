@@ -4,7 +4,7 @@ import './mainPage.css'
 import style from './styleMap';
 import { getCoords } from '../../controllers/controllers';
 
-const MapPage = ({onDbl = () =>{}}) =>{
+const MapPage = ({onDbl = (lat:string, lng:string) =>{}}) =>{
       const[COORD, SETCOORD] = useState([])
       useEffect(() =>{
             async function ChangeStateCoord(){
@@ -34,13 +34,15 @@ const MapPage = ({onDbl = () =>{}}) =>{
         mapContainerStyle={{width: '100%', height: '80%'}}
         center={postion}
         zoom={15}
-        onDblClick={onDbl}
+        onDblClick={(e) =>{onDbl(String(e.latLng?.toJSON().lat),String( e.latLng?.toJSON().lng))}}
       >
         { /* Child components, such as markers, info windows, etc. */ }
         
         {COORD.map( (MARKER) =>
                             
-                            <Marker  position={{
+                            <Marker 
+                            
+                             position={{
                               lat: Number(MARKER['lat']), 
                               lng: Number(MARKER['lng'])
                             }} options={{

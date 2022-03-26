@@ -20,6 +20,9 @@ app.get('/', async (req, res) =>{
     console.log('OKKk')
 
 })
+app.post("/createMeet", async (req, res) =>{
+    db.createMeet(req, res)
+})
 app.listen(port, () =>{
         console.info(`Aplicação rodando na porta ${port}!`)
 });

@@ -37,3 +37,16 @@
     width: 40%;
     height: 5vh;
 }
+.btn-close-modal{
+    background-color: #fff;
+    outline: 0 none;
+    border: 0;
+    font-size: 2rem;
+    display:flex;
+
+}
+.modal-btn-close-div{
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+}

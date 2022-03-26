@@ -28,5 +28,13 @@ module.exports ={
             }
             resJu.send(res)
        })
+    },
+    async createMeet(reqJu, resJu) {
+        con.query(`INSERT INTO meets(lat, lng, name) VALUES("${reqJu.body.LAT_MEET}", "${reqJu.body.LNG_MEET}", "${reqJu.body.NAME_MEET}" )`, function(a, b, c){
+            if(b.serverStatus === 2){
+                resJu.send("sucess")
+            }
+        })
+        
     }
 }
