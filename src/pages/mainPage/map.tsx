@@ -3,9 +3,8 @@ import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import './mainPage.css'
 import style from './styleMap';
 import { getCoords } from '../../controllers/controllers';
-import { defineValidador } from './main';
 
-const MapPage = () =>{
+const MapPage = ({onDbl = () =>{}}) =>{
       const[COORD, SETCOORD] = useState([])
       useEffect(() =>{
             async function ChangeStateCoord(){
@@ -35,7 +34,7 @@ const MapPage = () =>{
         mapContainerStyle={{width: '100%', height: '80%'}}
         center={postion}
         zoom={15}
-        onDblClick={(e) =>{defineValidador()}}
+        onDblClick={onDbl}
       >
         { /* Child components, such as markers, info windows, etc. */ }
         

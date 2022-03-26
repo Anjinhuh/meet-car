@@ -3,23 +3,20 @@ import './mainPage.css'
 import MapPage from './map'
 import CreateMeet from './modalCreateMeet/createMeet'
 
-let validador = false
-export const defineValidador = () =>{
-    validador = true
-    console.log('ok')
-}
+
+
 
 export default function MainPage(){
     const [CREATE_MEET_DISP, SET_CREATE_MEET] = useState(false)
-    if(validador){
-        SET_CREATE_MEET(true)
-       
-    }
+    
+   const modifyModal = () =>{
+       if(CREATE_MEET_DISP){
+           SET_CREATE_MEET(false)
+       } else if(CREATE_MEET_DISP === false){
+           SET_CREATE_MEET(true)
+       }
+   }
     return(
-
-    
-    
-    
     <div className="appMain">
         
         <header>
@@ -32,8 +29,8 @@ export default function MainPage(){
             </div>
 
         </header>
-        {CREATE_MEET_DISP ? <CreateMeet/> : <div className="map">
-            <MapPage></MapPage>
+        {CREATE_MEET_DISP ? <CreateMeet changeModal={()=>{modifyModal()}} /> : <div className="map">
+            <MapPage onDbl={() =>{modifyModal()}} ></MapPage>
         </div> }
         
     </div>
