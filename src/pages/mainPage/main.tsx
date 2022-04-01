@@ -19,7 +19,8 @@ export default function MainPage(){
         }        
     }
     const CREATE_MEET = async(nameMeet:string, typeCar:string) =>{
-        create_meet(nameMeet, COORD_MEET_LAT, COORD_MEET_LNG).finally(() =>{
+        let KEY_MEET:number = Math.floor(Math.random() * (99999 - 1000 + 1) + 1000)
+        create_meet(nameMeet, COORD_MEET_LAT, COORD_MEET_LNG, KEY_MEET).finally(() =>{
             window.location.reload()
         })
     }

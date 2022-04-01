@@ -51,7 +51,10 @@ const MapPage = ({onDbl = (lat:string, lng:string) =>{}}) =>{
                                 className: 'map-marker'
                               }
                               
-                            }} />
+                            }}
+                            key={MARKER['keyId']}
+                            onClick={(e) =>{console.log(MARKER['keyId'])}} />
+                            
                         )}
       
       </GoogleMap>

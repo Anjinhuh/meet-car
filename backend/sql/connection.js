@@ -23,14 +23,14 @@ module.exports ={
             if(err) throw  err;
             for(var i = 0; i < CONTADOR_COORDS_QUANTITTY; i++){
                 ARRAY_COORDS.push({
-                    id: res[i].id, lat: res[i].lat, lng: res[i].lng
+                    id: res[i].keyId, lat: res[i].lat, lng: res[i].lng
                 })
             }
             resJu.send(res)
        })
     },
     async createMeet(reqJu, resJu) {
-        con.query(`INSERT INTO meets(lat, lng, name) VALUES("${reqJu.body.LAT_MEET}", "${reqJu.body.LNG_MEET}", "${reqJu.body.NAME_MEET}" )`, function(a, b, c){
+        con.query(`INSERT INTO meets(lat, lng, name, keyId) VALUES("${reqJu.body.LAT_MEET}", "${reqJu.body.LNG_MEET}", "${reqJu.body.NAME_MEET}", ${reqJu.body.KEY_MEET} )`, function(a, b, c){
             if(b.serverStatus === 2){
                 resJu.send("sucess")
             }
